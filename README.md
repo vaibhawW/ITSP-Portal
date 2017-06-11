@@ -37,7 +37,7 @@ This is the portal for IITB|STAB ITSP 2017
 	7.	run django shell and create user-passwords.
 
 			python manage.py shell
-			imoprt passmanager
+			import passmanager
 			passsmanager.generate(NUMBEROFUSERS)
 	8.	you are all set and ready to go...
 
