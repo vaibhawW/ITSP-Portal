@@ -1,0 +1,114 @@
+{% extends 'template.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" /> {% endblock %} {% block body %}
+<section id="banner">
+	<div class="inner">
+		<header>
+			<h1>ITSP 2017</h1>
+			<p>This summer build your own Institute Technical Summer Project</p>
+		</header>
+		<a href="/ITSP/submitProject" class="button big alt scrolly">Submit Project</a>
+		<a href="#browseProjects" class="button big alt scrolly">Browse Projects</a>
+	</div>
+</section>
+<!-- One -->
+<div id="browseProjects">
+	<section class="wrapper style2">
+		<div class="inner">
+			<header>
+				<h2>Browse Thru Projects</h2>
+				<p>You can select any one group to browse its projects.</p>
+			</header>
+			<div class="flex flex-tabs">
+				<ul class="tab-list" style="inline-block">
+					<li><a href="#" data-tab="tab-1" class="active">All</a></li>
+					<li><a href="#" data-tab="tab-2">AEROMODELLING CLUB</a></li>
+					<li><a href="#" data-tab="tab-3" style="font-size: 15px;line-height: 30px">ELECTRONICS AND ROBOTICS CLUB</a></li>
+					<li><a href="#" data-tab="tab-4">BIOTECH CLUB</a></li>
+					<li><a href="#" data-tab="tab-5">WEB AND CODING CLUB</a></li>
+				</ul>
+				<div class="tabs">
+					<div class="tab tab-1 flex flex-3 active" style="overflow: hidden">
+						{% for club in all %}
+						<a href="/ITSP/project/{{club.team_id}}" class="link">
+							<div class="box">
+								<span>{{club.project_name}}</span>
+							</div>
+						</a>
+						{% endfor %}
+					</div>
+					<div class="tab tab-2 flex flex-3">
+						{% for club in aero %}
+						<a href="/ITSP/project/{{club.team_id}}" class="link">
+							<div class="box">
+								<span>{{club.project_name}}</span>
+							</div>
+						</a>
+						{% endfor %}
+					</div>
+					<div class="tab tab-3 flex flex-3">
+						{% for club in erc %}
+						<a href="/ITSP/project/{{club.team_id}}" class="link">
+							<div class="box">
+								<span>{{club.project_name}}</span>
+							</div>
+						</a>
+						{% endfor %}
+					</div>
+					<div class="tab tab-4 flex flex-3">
+						{% for club in biotech %}
+						<a href="/ITSP/project/{{club.team_id}}" class="link">
+							<div class="box">
+								<span>{{club.project_name}}</span>
+							</div>
+						</a>
+						{% endfor %}
+					</div>
+					<div class="tab tab-5 flex flex-3">
+						{% for club in wncc %}
+						<a href="/ITSP/project/{{club.team_id}}" class="link">
+							<div class="box">
+								<span>{{club.project_name}}</span>
+							</div>
+						</a>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="wrapper ">
+		<div class="inner">
+			<h2 id="content">Relevent Materials</h2>
+			<p>Broken that toy to see of how that spring worked. Failed miserably at putting that FM Radio back together after unscrewing it to take a peek. Remember the sense of elation reading 'Hello World' on the screen. As you might have guessed coming to IITB you are not alone. From circuit benders to star gazers we have it all here. Technical Activities (lovingly abbreviated by IITB lingo to Tech) here provide a vast scope for fulfilling those geek pangs.</p>
+			<a href="http://tech-iitb.org" class="button special fit" style="z-index:9;cursor: pointer;">Visit STAB Website</a>
+		</div>
+	</section>
+	<section class="wrapper style1">
+		<div class="inner">
+			<div class="row">
+				<section class="6u 12u$(medium)">
+					<h2>About ITSP</h2>
+					<p><strong>ITSP </strong>Institute Technical summer projects organised by the STAB, Student Technical Activities Body,IITB creates an environment for students at IITB, to design,build,develop and code amazing projects in the Summer.</p>
+				</section>
+				<section class="6u$ 6u$(medium) 12u$(small)">
+					<h4>We Provide</h4>
+					<ul class="alt">
+						<li>Mentorship by Experienced Seniors</li>
+						<li>Room Retention during summers</li>
+						<li>Certificate on Completion of project</li>
+						<li>All expenses towards the project would be paid for by the institute(conditioned to completion).</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</section>
+	<section class="wrapper ">
+		<div class="inner">
+			<h2 id="content">About STAB</h2>
+			<h3>Technical Activities at IIT Bombay</h3>
+			<p>Broken that toy to see of how that spring worked. Failed miserably at putting that FM Radio back together after unscrewing it to take a peek. Remember the sense of elation reading 'Hello World' on the screen. As you might have guessed coming to IITB you are not alone. From circuit benders to star gazers we have it all here. Technical Activities (lovingly abbreviated by IITB lingo to Tech) here provide a vast scope for fulfilling those geek pangs.</p>
+			<a href="http://tech-iitb.org" class="button special fit" style="z-index:9;cursor: pointer;">Visit STAB Website</a>
+		</div>
+	</section>
+</div>
+{% endblock %}
