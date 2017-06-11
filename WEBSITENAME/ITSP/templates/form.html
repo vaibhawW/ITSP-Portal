@@ -1,0 +1,70 @@
+{% extends 'template.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/form.css' %}" />
+<style type="text/css">
+table {
+	padding: 0;
+	margin: 0 auto 0 auto;
+	max-width: 100% !important;
+}
+
+th,
+td {
+	padding: 0;
+	margin: 0;
+	line-height: 0;
+	letter-spacing: 1px;
+	vertical-align: middle;
+}
+
+tr {
+	padding: 0 !important;
+	margin: 0 !important;
+	height: auto;
+	width: 100%;
+}
+
+label {
+	padding: 0;
+	margin: 0;
+}
+
+.helptext {
+	display: none;
+}
+
+ul,li{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+	vertical-align: middle;
+	line-height: 30px;
+	color:#FF4200;
+}
+input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+</style>
+{% endblock %} {% block body %}
+<div id="main">
+	<section class="wrapper style2">
+		<h2>Project Submission Form</h2>
+		<p>Congratulations on completing the project. Do upload your team-pic and video to set examples for future junta.</p>
+	</section>
+	<section class="wrapper style2">
+		<div class="inner">
+			<form action="/ITSP/submitProject" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				<table>
+					{{ form }}
+					<tr>
+						<th></th>
+						<td style="text-align: right">
+							<input type="submit" value="Proceed" class="special button" style="width:200px" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</section>
+</div>
+{% endblock %}

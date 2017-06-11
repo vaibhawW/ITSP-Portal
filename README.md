@@ -1,7 +1,9 @@
 # STAB-ITSP Portal #
 
-I am going to update the readme soon.
 
+Prerequesites:
+	
+	settings.py should be configured to use some database.
 
 Setps followed:
 
@@ -31,6 +33,16 @@ Setps followed:
 		or
 		**sudo pip install multiselectfield**
 
+6.	makemigrations and migrate...
+		**python manage.py makemigrations**
+		**python manage.py migrate**
+
+7.	run django shell and create user-passwords. 
+		**python manage.py shell**
+		**imoprt passmanager**
+		**passsmanager.generate(NUMBEROFUSERS)**
+
+8.	you are all set and ready to go...
 
 
 ### What is this repository for? ###

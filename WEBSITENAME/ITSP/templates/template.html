@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>ITSP 2017 | STAB-IITB</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	{% block head %}
+	{% endblock %}
+</head>
+
+<body>
+	<header id="header">
+		<h1><a href="#">ITSP <span>2017</span></a></h1>
+		<a href="#menu">Menu</a>
+	</header>
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="/ITSP">Home</a></li>
+			<li><a href="/ITSP/submitProject">Submit Project</a></li>
+			<!-- <li><a href="elements.html">FAQ's</a></li> -->
+		</ul>
+	</nav>
+	{%block body%}
+	{% endblock %}
+	<footer id="footer">
+		<div class="copyright">
+			<ul class="icons">
+				<li><a href="https://www.facebook.com/stab.iitb" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="https://www.youtube.com/user/STABiitb" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+				<li><a href="https://github.com/stabiitb" class="icon fa-github"><span class="label">GitHub</span></a></li>
+			</ul>
+			&copy; 2017 <a href="http://tech-iitb.org">STAB-IITB</a> All Rights Reserved
+		</div>
+	</footer>
+	<!-- Scripts -->
+	{% block footer %}
+	{% endblock %}
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+	<script src="{% static 'assets/js/skel.min.js' %}"></script>
+	<script src="{% static 'assets/js/util.js' %}"></script>
+	<script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+{% extends 'template.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" /> {% endblock %} {%block body%}
+<!-- Section 1 -->
+<section class="wrapper style1">
+	<div class="inner" style="text-align:center">
+		{% if data.bill == 'yes' %}
+		<header class="align-center">
+			<h2>{{data.project_name}}</h2>
+			<hr>
+		</header>
+		{% else %}
+		<header class="align-center">
+			<h2 style="color:#FFA500">{{data.project_name}}</h2>
+			<hr>
+		</header>
+		{% endif %} {% if data.video %}
+		<div class="video">
+			<div class="video-wrapper" id="videoWrap">
+			</div>
+			<script type="text/javascript">
+			function youtube_parser(url) {
+				var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+				var match = url.match(regExp);
+				return (match && match[7].length == 11) ? match[7] : false;
+			}
+			var videoLink = youtube_parser("{{data.video}}");
+			document.getElementById("videoWrap").innerHTML = `<iframe id="videoUrl" width="560" height="315" src="https://www.youtube.com/embed/` + videoLink + `" frameborder="0" allowfullscreen></iframe>`;
+			</script>
+		</div>
+		{% endif %}
+		<div style="text-align: justify">
+			<p>{{data.description}}</p>
+		</div>
+	</div>
+</section>
+<!-- Section 2 -->
+<section class="wrapper style1">
+	<div class="inner">
+		<div style="text-align: justify;" class="8u">
+			<h5 style="display: inline-block">Team &nbsp;	</h5>
+			<h3 style="text-transform: uppercase;display: inline-block;">{{data.team_name}}</h3>
+		</div>
+		{% if data.teamPic %}
+		<div class="row">
+			<div class="8u">
+				<table>
+					<tr>
+						<td>Team Members </td>
+						<td>:</td>
+						<td>{% if data.member1 %} {{data.member1}} {% endif %} {% if data.member2 %} , {{data.member2}}{% endif %} {% if data.member3 %} , {{data.member3}}{% endif %} {% if data.member4 %} , {{data.member4}}{% endif %}</td>
+					</tr>
+					<tr>
+						<td>Club</td>
+						<td>:</td>
+						<td>{{data.club}}</td>
+					</tr>
+					<tr>
+						<td>Mentor</td>
+						<td>:</td>
+						<td>{{data.mentor}}</td>
+					</tr>
+					<tr>
+						<td>Team Id</td>
+						<td>:</td>
+						<td>{{data.team_id}}</td>
+					</tr>
+					<tr>
+						<td>Slot</td>
+						<td>:</td>
+						<td>{{data.slot}}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="4u$">
+				<img src="/static/media/{{data.teamPic}}" class="img-responsive" alt="" style="max-height: 100%; max-width: 100%">
+			</div>
+		</div>
+		{% else %}
+		<div class="row">
+			<div class="12u">
+				<table>
+					<tr>
+						<td>Team members </td>
+						<td>:</td>
+						<td>{% if data.member1 %} {{data.member1}} {% endif %} {% if data.member2 %} , {{data.member2}}{% endif %} {% if data.member3 %} , {{data.member3}}{% endif %} {% if data.member4 %} , {{data.member4}}{% endif %}</td>
+					</tr>
+					<tr>
+						<td>Club</td>
+						<td>:</td>
+						<td>{{data.club}}</td>
+					</tr>
+					<tr>
+						<td>Mentor</td>
+						<td>:</td>
+						<td>{{data.mentor}}</td>
+					</tr>
+					<tr>
+						<td>Team Id</td>
+						<td>:</td>
+						<td>{{data.team_id}}</td>
+					</tr>
+					<tr>
+						<td>Slot</td>
+						<td>:</td>
+						<td>{{data.slot}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+</section>
+<!-- Section 3 -->
+<section class="wrapper style1">
+	<div class="inner">
+		<iframe src='/static/media/{{data.documentation}}' height="900" width="100%">
+			This browser does not supports iframes. Please download the pdf from <a href='/static/media/{{data.documentation}}'>Here</a>
+		</iframe>
+	</div>
+</section>
+{% endblock %} {% block footer %} {% endblock %}
